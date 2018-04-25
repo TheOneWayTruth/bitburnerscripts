@@ -8,11 +8,7 @@ for (i = 0; i < serversSeen.length; i++)
         if (serversSeen.indexOf(thisScan[j]) === -1) 
         {
             serversSeen.push(thisScan[j]);
+            run("knockknock.script", 1, thisScan[j]);
         }
     }
-}
-
-for (i = 0; i < serversSeen.length; i++)
-{
-    run("knocknock.script", 1, serversSeen[i]);
 }
