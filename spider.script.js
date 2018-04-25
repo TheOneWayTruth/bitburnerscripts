@@ -14,5 +14,5 @@ for (i = 0; i < serversSeen.length; i++)
 
 for (i = 0; i < serversSeen.length; i++)
 {
-    run(knocknock, 1, serversSeen[i]);
+    run("knocknock.script", 1, serversSeen[i]);
 }
