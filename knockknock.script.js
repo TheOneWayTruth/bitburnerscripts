@@ -29,7 +29,7 @@ if (hasRootAccess(hostname) === false && getServerNumPortsRequired(hostname) <= 
    nuke(hostname);
 }
 
-if (hasRootAccess(hostname) === true && getServerRequiredHackingLevel(hostname) < getHackingLevel()){
+if (hasRootAccess(hostname) === true && getServerRequiredHackingLevel(hostname) <= getHackingLevel()){
     scp("allarounder.script", "home", hostname);
     exec("allarounder.script", hostname);
 }
