@@ -1,14 +1,19 @@
 hostname = getHostname();
-while(true){
-weaken(hostname);
-if(getServerMoneyAvailable(hostname) > 200000) 
+securityThresh = round(getServerBaseSecurityLevel(hostname) / 3) + 2;
+moneyThresh = getServerMaxMoney(target) * 0.9;
+
+while(true)
 {
-    hack(hostname);
-    print("hacking M: " + getServerMoneyAvailable(hostname))
-} 
-else 
-{
-    grow(hostname);
-    print("growing M: "+ getServerMoneyAvailable(hostname))
-}
+    if (getServerSecurityLevel(hostname) > securityThresh)
+    {
+        weaken(hostname);
+    }
+    else if(getServerMoneyAvailable(target) < moneyThresh) 
+    {
+        grow(hostname);
+    } 
+    else 
+    {
+        hack(hostname);
+    }
 }
