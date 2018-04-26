@@ -1,14 +1,29 @@
-disableLog("ALL")
+disableLog("ALL");
+if (args.length === 0)
+{
+    time = 120;
+    script = "buynodes.script";
+}
+else if(args.length == 1)
+{
+    time = 120;
+    script = args[0];
+}
+else if(args.length == 2)
+{
+    time = args[1];
+    script = args[0];
+}
 while(true)
 {
-    if(!isRunning(args[0],"home"))
+    if(!isRunning(script,"home"))
     {
-        run(args[0]);
-        print("started "+ args[0])
+        run(script);
+        print("started "+ script);
     }
     
-    for (i = 0;i < args[1];i++)
+    for (i = 0;i < time;i++)
     {
-        print("sleeping " + i + " - " + args[1]);
+        print("sleeping " + i + " - " + time);
     }
 }
