@@ -1,5 +1,9 @@
+//Where "i" is the selected Node 
+//run Buynodes to select all Nodes and buy new ones.
 i = args[0]
 
+//function to check how often you need to buy ram
+//Outputs 32 - 1 ; 16 - 2 ; 8 - 3 etc.
 function getram(nowram)
 {
     zahler = 0;
@@ -13,6 +17,7 @@ function getram(nowram)
 
 
 print(i+". HackerNode")
+//Upgrades NodeLevel
     if (hacknetnodes[i].level<200)
     {
         times = 200 - hacknetnodes[i].level 
@@ -60,7 +65,7 @@ print(i+". HackerNode")
     {
         print("Max Level")
     }
-    
+    //Upgrades NodeRam
     if (hacknetnodes[i].ram<64)
     {
         times = getram(hacknetnodes[i].ram)
@@ -82,7 +87,7 @@ print(i+". HackerNode")
     {
         print("Max Ram")
     }
-
+	//Upgrades NodeCores
     if (hacknetnodes[i].cores<16)
     {
         times = 16 - hacknetnodes[i].cores;

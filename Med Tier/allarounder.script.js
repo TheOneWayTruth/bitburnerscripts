@@ -1,3 +1,5 @@
+//hacks the server on which its running.
+
 disableLog("ALL")
 hostname = getHostname();
 moneyThresh = getServerMaxMoney(hostname) * 0.8;

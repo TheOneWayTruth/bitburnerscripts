@@ -1,3 +1,5 @@
+//This is not my script but it hacks a server very well
+
 hackmult = 2.6880;
 growmult = 1.7708;
 

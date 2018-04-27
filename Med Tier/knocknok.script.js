@@ -1,3 +1,4 @@
+//Get admin rights on every server (if you have all programs and your level is high enough)
 disableLog("ALL")
 hostname = args[0];
 hackedports = 0;

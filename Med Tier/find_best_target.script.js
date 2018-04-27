@@ -1,3 +1,4 @@
+//findes the server with the highes maxmoney and is hackable and runs notmyscript.script on it
 disableLog("ALL");
 
 serversSeen = ['home'];

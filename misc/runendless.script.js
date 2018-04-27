@@ -1,3 +1,4 @@
+//easy Script to run a script endelss
 disableLog("ALL");
 
 if (args.length === 0)
