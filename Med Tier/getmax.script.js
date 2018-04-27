@@ -1,5 +1,3 @@
-//runs the allarounderscript with full threads
-
 hostname = args[0]
 res = getServerRam(hostname);
 ram = res[0] - res[1];
@@ -7,6 +5,13 @@ ram = res[0] - res[1];
 scp("allarounder.script", "home", hostname);
 
 base_cost = getScriptRam("allarounder.script", hostname);
+
+timeout = 0;
+while (base_cost === 0 && timeout < 6) {
+    base_cost = getScriptRam("allarounder.script", hostname);
+    timeout++;
+    print("trying "+ timeout)
+}
 
 thread_multiplier = 1.005;
 
@@ -41,6 +46,5 @@ if (base_cost !== 0) {
         tprint("not enough Ram to hack " + hostname)
     }
 } else {
-	//dont realy know what goes wrong here.
     print("strange Error :/")
 }

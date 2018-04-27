@@ -1,25 +1,33 @@
 disableLog("ALL")
 
-//Buy all available nodes.
+if (fileExists("MaxedNodes.txt", "home")){
+    str = read("MaxedNodes.txt");
+    isMax = str.split(",");
+    isMax = Number(isMax);
+}
+else{
+    isMax = 0;
+}
+
 while (getServerMoneyAvailable("home") > getNextHacknetNodeCost()) {
     purchaseHacknetNode()
     print("Boght a new Node: " + hacknetnodes.length)
 }
-//check if a startby is given
-if (args.length == 1) {
-    startby = args[0];
-} else {
-    startby = 0;
-}
 
-//runs upgradenode.script on all nodes who arent max level.
-for (i = startby; i < hacknetnodes.length; i++) {
 
+
+for (i = isMax; i < hacknetnodes.length; i++) {
     if (!(hacknetnodes[i].ram == 64 && hacknetnodes[i].cores == 16 && hacknetnodes[i].level == 200)) {
         if (!isRunning("upgradenode.script", "home", i)) {
             run("upgradenode.script", 1, i)
         }
     } else {
-        print("Node " + i + " is Maxed")
+        print("Node " + i + " is Maxed");
+        if(i > isMax){
+            isMax = i;
+        }
     }
 }
+
+rm("MaxedNodes.txt");
+write("MaxedNodes.txt", isMax+", 0");
