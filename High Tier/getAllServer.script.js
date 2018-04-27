@@ -13,9 +13,7 @@ for (i = 0; i < serversSeen.length; i++)
 }
 
 serversSeen.shift();
-serversSeen.sort(function(a, b){
-    return getServerRequiredHackingLevel(a) - getServerRequiredHackingLevel(b);
-});
+
 rm("Allserver.txt");
 write("Allserver.txt", serversSeen.join());
 run("NetHack.script");
