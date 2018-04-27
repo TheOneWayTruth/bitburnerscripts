@@ -21,14 +21,15 @@ function gethackingtools() {
 if (fileExists("Allserver.txt", "home")) {
     str = read("Allserver.txt");
     Allserver = str.split(",");
-    if (fileExists("HackedServer.txt", "home")) {
-        str = read("HackedServer.txt");
-        HackedServer = str.split(",");
-    } else {
-        HackedServer = ["home"]
+    if (fileExists("NotHackedServer.txt", "home")) {
+        str = read("NotHackedServer.txt");
+        Allserver = str.split(",");
+        rm("NotHackedServer.txt")
+        rm("HackedServer.txt")
     }
-
+    
     Hackingtools = gethackingtools();
+    
     for (i = 0; i < Allserver.length; i++) {
         if (getServerRequiredHackingLevel(Allserver[i]) < getHackingLevel()) {
             if(hasRootAccess(Allserver[i])){
