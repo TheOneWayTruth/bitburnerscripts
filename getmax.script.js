@@ -14,7 +14,7 @@ print("CALCULATING MAX THREADS");
 print("Script RAM Cost: " + base_cost + "GB RAM");
 print("Server Free RAM: " + ram + "GB RAM");
 
-if (base_cost > ram) {
+if (base_cost < ram) {
     while (max_ram < ram) {
         print(max_threads + " THREAD cost: " + max_ram + "/" + ram + "GB RAM");
 
@@ -29,8 +29,9 @@ if (base_cost > ram) {
     print("Max Threads: " + max_threads);
     max_threads--;
     scp("allarounder.script", "home", hostname);
+    tprint("Starting allarounder on "+hostname+" with "+max_threads+" threads")
     exec("allarounder.script", hostname, max_threads);
 
 } else {
-    print("not enough Ram")
+    tprint("not enough Ram to hack "+hostname)
 }

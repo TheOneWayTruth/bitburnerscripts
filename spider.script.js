@@ -14,15 +14,24 @@ function hasram(server) {
     return true;
 }
 
-for (i = 0; i < serversSeen.length; i++) {
+for (i = 0; i < serversSeen.length; i++) 
+{
     thisScan = scan(serversSeen[i]);
-    for (j = 0; j < thisScan.length; j++) {
-        if (serversSeen.indexOf(thisScan[j]) === -1) {
+    for (j = 0; j < thisScan.length; j++) 
+    {
+        if (serversSeen.indexOf(thisScan[j]) === -1) 
+        {
             serversSeen.push(thisScan[j]);
             print("found: " + thisScan[j])
-            if (!isRunning("allarounder.script", thisScan[j]) && hasram(thisScan[j])) {
-                print("starting Hack on " + thisScan[j])
-                run("knocknok.script", 1, thisScan[j]);
+            if (isRunning("allarounder.script", thisScan[j])===false)
+            {
+                if(hasram(thisScan[j])) 
+                {    if(getServerRequiredHackingLevel(thisScan[j]) <= getHackingLevel()) 
+                    {
+                    tprint("starting Hack on " + thisScan[j])
+                    run("knocknok.script", 1, thisScan[j]);
+                    }
+                }
             }
         }
     }

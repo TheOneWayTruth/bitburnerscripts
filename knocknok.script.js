@@ -33,10 +33,12 @@ if (!hasRootAccess(hostname)) {
     print("open Ports: " + hackedports)
     if (getServerNumPortsRequired(hostname) <= hackedports) {
         nuke(hostname);
-        print("Throwing a Nuke")
+        tprint(hostname + " was Nuked")
+        run("getmax.script", 5, hostname)
     }
-} else if (getServerRequiredHackingLevel(hostname) <= getHackingLevel()) {
+} 
+else
+{
+    tprint(hostname + " is allready Nuked")
     run("getmax.script", 5, hostname)
-} else {
-    print("Level too low")
 }
